@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
-</head>
-<body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-    </nav>
-    <h1>Hello from the home page</h1>
-</body>
-</html>
+<!-- Layout - custom html tag -->
+<!-- x-nameOfComponent -->
+<x-layout>
+    <h1>Home Page</h1>
+</x-layout>
