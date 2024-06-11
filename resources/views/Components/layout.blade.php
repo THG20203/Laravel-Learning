@@ -18,14 +18,10 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-
-                <!-- Laravel out of the box include a request() helper function. You can call it to obtain information about the current 
-                request. One of the methods on the request() object is is(). is() allows us to pass a regular expression, a pattern - 
-                so if is("/") if the is method has / as a parameter (home page) then apply the active styling -->
-
-                <a href="/" class="{{ request()->is("/") ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white" }} rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-                <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                <!-- All that needs to be passed to x-link is the href. the logic for styling is contained in the nav-link blade file --> 
+                <x-nav-link href="/">Home</x-nav-link>
+                <x-nav-link href="/about">About</x-nav-link>
+                <x-nav-link href="/contact">Contact</x-nav-link>
               </div>
             </div>
           </div>
