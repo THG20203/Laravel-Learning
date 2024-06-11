@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 
 class Job
 {
+    /* return type of array */
     public static function all(): array
     {
         return [
@@ -31,4 +32,11 @@ class Job
     {
         return Arr::first(static::all(), fn ($job) => $job["id"] == $id);
     }
+
+    /* Model is a key term, comes from the MVC arcitecture. Model, View, Controller.
+    MVC = system for applications. Its how each piece of puzzle should communicate. 
+    
+    Models - Represent data persistence, business logic tier of application
+    Views - Presentation layer
+    Controller - Defining a route then have a function that handles that route? */
 }
