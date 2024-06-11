@@ -13,14 +13,18 @@ Route::get('/jobs', function () {
         [
             'jobs' => [
                 [
+                    /* id added - one key that'll always be unique to represent an individual item */
+                    'id' => 1,
                     'title' => 'Director',
                     'salary' => '$50,000'
                 ],
                 [
+                    'id' => 2,
                     'title' => 'Programmer',
                     'salary' => '$80,000'
                 ],
                 [
+                    'id' => 3,
                     'title' => 'Teacher',
                     'salary' => '$40,000'
                 ],
