@@ -29,7 +29,7 @@
                     checks if the current request URL matches any of these patterns. It's commonly used for route matching. -->
 
                     <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+                    <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
                     <!-- adding :active colon before active sees it interpreted as a boolean rather than a string -->
                     <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </nav>

@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/jobs', function () {
     return view(
-        'home',
+        'jobs',
         /* Can have an array, with a key of jobs AND an array inside it with a list of jobs */
         [
             'jobs' => [
@@ -23,10 +27,6 @@ Route::get('/', function () {
             ]
         ]
     );
-});
-
-Route::get('/jobs', function () {
-    return view('jobs');
 });
 
 Route::get('/contact', function () {
