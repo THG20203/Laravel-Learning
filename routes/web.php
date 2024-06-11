@@ -35,7 +35,8 @@ Route::get('/jobs', function () {
 
 /* Laravel will automatically detect jobs/{id} id is wrapped in braces, and it will know its a wildcard */
 Route::get('/jobs/{id}', function ($id) {
-    dump($id);
+    /* dump and die, dump then kill the execution */
+    dd($id);
     return view('contact');
 });
 
