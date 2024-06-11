@@ -30,7 +30,14 @@ class Job
     /* new method - call it find. Want to find a specific job with an id (and that id should be an integar). */
     public static function find(int $id): array
     {
-        return Arr::first(static::all(), fn ($job) => $job["id"] == $id);
+        /* we're already in job class above so could just say static::all */
+        $job = Arr::first(static::all(), fn ($job) => $job["id"] == $id);
+
+        if (!$job) {
+            abort(404);
+        }
+
+        return $job;
     }
 
     /* Model is a key term, comes from the MVC arcitecture. Model, View, Controller.
