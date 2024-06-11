@@ -19,9 +19,11 @@
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- All that needs to be passed to x-link is the href. the logic for styling is contained in the nav-link blade file --> 
-                <x-nav-link href="/">Home</x-nav-link>
-                <x-nav-link href="/about">About</x-nav-link>
-                <x-nav-link href="/contact">Contact</x-nav-link>
+                <nav>
+                    <x-nav-link href="/">Home</x-nav-link>
+                    <x-nav-link href="/about" id="aerwiut">About</x-nav-link>
+                    <x-nav-link href="/contact">Contact</x-nav-link>
+                </nav>
               </div>
             </div>
           </div>
