@@ -25,8 +25,8 @@ Route::get('/', function () {
     );
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/jobs', function () {
+    return view('jobs');
 });
 
 Route::get('/contact', function () {
