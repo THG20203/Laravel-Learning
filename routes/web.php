@@ -35,8 +35,25 @@ Route::get('/jobs', function () {
 
 /* Laravel will automatically detect jobs/{id} id is wrapped in braces, and it will know its a wildcard */
 Route::get('/jobs/{id}', function ($id) {
-    /* dump and die, dump then kill the execution */
-    dd($id);
+    /* jobs variable created (duplicate information so that jobs data can be manipulated in wildcard for now */
+    $jobs = [
+        [
+            /* id added - one key that'll always be unique to represent an individual item */
+            'id' => 1,
+            'title' => 'Director',
+            'salary' => '$50,000'
+        ],
+        [
+            'id' => 2,
+            'title' => 'Programmer',
+            'salary' => '$80,000'
+        ],
+        [
+            'id' => 3,
+            'title' => 'Teacher',
+            'salary' => '$40,000'
+        ],
+    ];
     return view('contact');
 });
 
