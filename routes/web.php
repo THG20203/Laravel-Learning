@@ -5,10 +5,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view(
         'home',
-        /* Can pass second argument to view function (will be an array) Where each of the keys are extracted into 
-        variables once my view/template is loaded. */
+        /* Can have an array, with a key of jobs AND an array inside it with a list of jobs */
         [
-            'greeting' => "A test of change"
+            'jobs' => [
+                [
+                    'title' => 'Director',
+                    'salary' => '$50,000'
+                ],
+                [
+                    'title' => 'Programmer',
+                    'salary' => '$80,000'
+                ],
+                [
+                    'title' => 'Teacher',
+                    'salary' => '$40,000'
+                ],
+            ]
         ]
     );
 });
