@@ -21,8 +21,10 @@
                 <!-- All that needs to be passed to x-link is the href. the logic for styling is contained in the nav-link blade file --> 
                 <nav>
                     <x-nav-link href="/">Home</x-nav-link>
-                    <x-nav-link href="/about" id="aerwiut">About</x-nav-link>
-                    <x-nav-link href="/contact">Contact</x-nav-link>
+                    <x-nav-link href="/about">About</x-nav-link>
+                    <!-- Anything is going to work here because active is set, meaning it will be a truthy value, could even set active="false"
+                    and it will still be seen as truthy -->
+                    <x-nav-link href="/contact" active="vtewi">Contact</x-nav-link>
                 </nav>
               </div>
             </div>
