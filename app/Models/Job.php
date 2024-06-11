@@ -24,4 +24,8 @@ class Job
             ]
         ];
     }
+    /* new method - call it find. Want to find a specific job with an id (and that id should be an integar). */
+    public static function find(int $id)
+    {
+    }
 }
