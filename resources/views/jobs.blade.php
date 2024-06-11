@@ -11,8 +11,8 @@
             <!-- list item, where I echo out the job title -->
             <li>
                 <!-- <a> tag to take me to a new route. Identifier in place for 'said route' -->
-                <a href="/jobs/">
-                    <strong>{{ $job['title']}}:</strong> pays {{ $job['salary'] }} per year.
+                <a href="/jobs/{{ $job['id'] }}" class="text-blue-500 hover:underline">
+                    <strong>{{ $job['title']}}:</strong> Pays {{ $job['salary'] }} per year.
                 </a>
             </li>
         <!-- End of the foreach block -->
