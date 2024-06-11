@@ -31,7 +31,7 @@
                     <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                     <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                     <!-- adding :active colon before active sees it interpreted as a boolean rather than a string -->
-                    <x-nav-link :active="request()->is('contact')" type="button">Contact</x-nav-link>
+                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </nav>
               </div>
             </div>
