@@ -28,9 +28,9 @@ Route::get('/', function () {
 Route::get('/jobs', function () use ($jobs) {
     /* view('jobs', ["job" => $jobs]) means that the function is returning 
     a view named jobs. This view will receive data in the form of an array 
-    where the key is "job" and the value is whatever is stored in $jobs. This 
+    where the key is "jobs" and the value is whatever is stored in $jobs. This 
     allows the jobs view to access the $jobs array data. */
-    return view('jobs', ["job" => $jobs]);
+    return view('jobs', ["jobs" => $jobs]);
 });
 
 Route::get('/jobs/{id}', function ($id) use ($jobs) {
