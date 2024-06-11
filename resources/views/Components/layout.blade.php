@@ -20,10 +20,18 @@
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- All that needs to be passed to x-link is the href. the logic for styling is contained in the nav-link blade file --> 
                 <nav>
-                    <x-nav-link href="/">Home</x-nav-link>
-                    <x-nav-link href="/about">About</x-nav-link>
+
+                    <!-- request(): This function or method call returns an instance of the request object. 
+                    This object contains all the information about the current HTTP request, including the URI, query parameters, 
+                    posted data, HTTP headers, and more.-->
+                    
+                    <!-- is(): This method on the request object takes one or more arguments as patterns (strings or regex) and 
+                    checks if the current request URL matches any of these patterns. It's commonly used for route matching. -->
+
+                    <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                     <!-- adding :active colon before active sees it interpreted as a boolean rather than a string -->
-                    <x-nav-link href="/contact" :active="false">Contact</x-nav-link>
+                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                 </nav>
               </div>
             </div>
