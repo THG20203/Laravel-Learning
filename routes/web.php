@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Arr;
 
 Route::get('/', function () {
     return view('home');
@@ -9,11 +10,9 @@ Route::get('/', function () {
 Route::get('/jobs', function () {
     return view(
         'jobs',
-        /* Can have an array, with a key of jobs AND an array inside it with a list of jobs */
         [
             'jobs' => [
                 [
-                    /* id added - one key that'll always be unique to represent an individual item */
                     'id' => 1,
                     'title' => 'Director',
                     'salary' => '$50,000'
@@ -33,12 +32,9 @@ Route::get('/jobs', function () {
     );
 });
 
-/* Laravel will automatically detect jobs/{id} id is wrapped in braces, and it will know its a wildcard */
 Route::get('/jobs/{id}', function ($id) {
-    /* jobs variable created (duplicate information so that jobs data can be manipulated in wildcard for now */
     $jobs = [
         [
-            /* id added - one key that'll always be unique to represent an individual item */
             'id' => 1,
             'title' => 'Director',
             'salary' => '$50,000'
@@ -54,14 +50,8 @@ Route::get('/jobs/{id}', function ($id) {
             'salary' => '$40,000'
         ],
     ];
-
-    /* Give me the job that matches the one that I passed in. */
-    /* use ($id) is the traditional php way of sorting closure problem */
-    \Illuminate\Support\Arr::first($jobs, function ($job) use ($id) {
-        return $job["id"] === $id;
-    });
-
-    return view('contact');
+    $job = Arr::first($jobs, fn ($job) => $job["id"] == $id);
+    return view('job', ['job' => $job]);
 });
 
 
