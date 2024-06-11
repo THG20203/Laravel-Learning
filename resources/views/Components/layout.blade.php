@@ -22,9 +22,8 @@
                 <nav>
                     <x-nav-link href="/">Home</x-nav-link>
                     <x-nav-link href="/about">About</x-nav-link>
-                    <!-- Anything is going to work here because active is set, meaning it will be a truthy value, could even set active="false"
-                    and it will still be seen as truthy. Why? Cause active="false" false is being passed as a string - NOT as a boolean -->
-                    <x-nav-link href="/contact" active="false">Contact</x-nav-link>
+                    <!-- adding :active colon before active sees it interpreted as a boolean rather than a string -->
+                    <x-nav-link href="/contact" :active="false">Contact</x-nav-link>
                 </nav>
               </div>
             </div>
