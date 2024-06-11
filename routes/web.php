@@ -56,9 +56,11 @@ Route::get('/jobs/{id}', function ($id) {
     ];
 
     /* Give me the job that matches the one that I passed in. */
-    \Illuminate\Support\Arr::first($jobs, function ($job) {
+    /* use ($id) is the traditional php way of sorting closure problem */
+    \Illuminate\Support\Arr::first($jobs, function ($job) use ($id) {
         return $job["id"] === $id;
     });
+
     return view('contact');
 });
 
