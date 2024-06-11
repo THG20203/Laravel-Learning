@@ -56,16 +56,7 @@ Route::get('/jobs/{id}', function ($id) {
     ];
 
     /* Give me the job that matches the one that I passed in. */
-    /* Laravel has Arr class which has a lot of methods to allow me to interact with arrays */
-
-    /* first() function - find the first item within an array that matches some kind of criteria */
-
-    /* first() function, first give it the $jobs array, then callback function can be called for each 
-    item in the array and it will receive the current item - (hence $job in the parameter */
     \Illuminate\Support\Arr::first($jobs, function ($job) {
-        /* Inside of function should be a boolean - (is this the one you mean? - is this the first one 
-        you're trying to find) */
-        /* closure though means it won't work */
         return $job["id"] === $id;
     });
     return view('contact');
