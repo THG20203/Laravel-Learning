@@ -1,5 +1,7 @@
 <!-- Layout - custom html tag -->
 <!-- x-nameOfComponent -->
 <x-layout>
-    <h1>About Page</h1>
+    <!-- Heading Slot -->
+    <x-slot:heading>About Page</x-slot:heading>
+    <h1>About page content</h1>
 </x-layout>
