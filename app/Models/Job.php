@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
+    protected $table = "job_listings";
 }
 
 /* Model is a key term, comes from the MVC arcitecture. Model, View, Controller.
