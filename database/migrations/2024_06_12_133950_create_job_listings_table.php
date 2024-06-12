@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
-            // foreign id called employer_id - for every job listing theres an employer_id (points to corresponding employer)
-            // defining the blueprint for table
+            // $table->unsignedBigIntegar("employer_id"); // unsigned means non-negative values and bigintegar means very large numbers
+            /* foreign id called employer_id - for every job listing theres an employer_id (points to corresponding employer) */
+            /* defining the blueprint for table */
             $table->string("title");
             $table->string("salary");
             $table->timestamps();
