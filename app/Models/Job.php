@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     protected $table = "job_listings";
+
+    /* add property to job class called fillable - represents all of the attributes that 
+    are able to be mass assigned (and those attributes ALONE). */
+    protected $fillable = ['title', 'salary'];
 }
 
 /* Model is a key term, comes from the MVC arcitecture. Model, View, Controller.
