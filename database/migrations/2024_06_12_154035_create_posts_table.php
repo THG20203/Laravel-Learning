@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            // text is longer than string cause string has 255 varchar limit
+            $table->text('body');
             $table->timestamps();
         });
     }
