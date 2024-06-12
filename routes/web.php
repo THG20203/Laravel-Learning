@@ -6,7 +6,7 @@ use App\Models\Job;
 Route::get('/', function () {
     /* all() eloquent method querying the database through the model class 
     use App\Models\Job */
-    $jobs = Job::all();
+    $jobs = Job::all(); // this didn't show anything in the browser? This can't be right?
 
     dd($jobs);
 
