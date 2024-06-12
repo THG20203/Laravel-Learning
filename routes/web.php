@@ -10,7 +10,7 @@ Route::get('/', function () {
 
     /* $job[0] - select first record within job listings table use [0]->salary 
     for instance, for the salary of the first record in the job listings table */
-    dd($jobs[0]);
+    dd($jobs[0]->salary);
 
     // return view('home');
 });
