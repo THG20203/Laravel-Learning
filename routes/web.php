@@ -4,7 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
 Route::get('/', function () {
-    return view('home');
+    /* all() eloquent method querying the database through the model class 
+    use App\Models\Job */
+    $jobs = Job::all();
+
+    dd($jobs);
+
+    // return view('home');
 });
 
 Route::get('/jobs', function () {
