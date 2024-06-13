@@ -16,6 +16,10 @@
                 </a>
         <!-- End of the foreach block -->
         @endforeach
+
+        <!-- Render the links for the pagination -->
+        <div>{{ $jobs->links() }}</div>
+        
     </div>
 
 </x-layout>
