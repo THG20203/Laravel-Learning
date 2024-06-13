@@ -21,6 +21,12 @@ class Job extends Model
     {
         return $this->belongsTo(Employer::class);
     }
+    // method to access all the tags for job
+    public function tags()
+    {
+        // belongs to and hasMany combines to create belongsToMany
+        return $this->belongsToMany(Tag::class);
+    }
 }
 
 /* Model is a key term, comes from the MVC arcitecture. Model, View, Controller.

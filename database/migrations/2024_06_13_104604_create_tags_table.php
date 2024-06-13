@@ -47,6 +47,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tags');
+        // need to drop the job tag table too 
+        Schema::dropIfExists('job_tag');
     }
 };
 
