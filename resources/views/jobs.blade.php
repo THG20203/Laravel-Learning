@@ -4,18 +4,15 @@
     <!-- Heading Slot -->
     <x-slot:heading>Jobs Page</x-slot:heading>
 
-    <!-- Adding ul browser automatically adds it but adding it AROUND foreach for good practice -->
-    <ul>
+    <div>
         <!-- Going to do a foreach with a blade directive -->
         @foreach ($jobs as $job)
-            <!-- list item, where I echo out the job title -->
-            <li>
                 <!-- <a> tag to take me to a new route. Identifier in place for 'said route' -->
-                <a href="/jobs/{{ $job['id'] }}" class="text-blue-500 hover:underline">
+                <a href="/jobs/{{ $job['id'] }}" class="text-blue-500 hover:underline block px-4 py-6 border border-gray-200">
                     <strong>{{ $job['title']}}:</strong> Pays {{ $job['salary'] }} per year.
                 </a>
-            </li>
         <!-- End of the foreach block -->
         @endforeach
-    </ul>
+    </div>
+
 </x-layout>
