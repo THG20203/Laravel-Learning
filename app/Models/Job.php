@@ -15,6 +15,12 @@ class Job extends Model
     /* add property to job class called fillable - represents all of the attributes that 
     are able to be mass assigned (and those attributes ALONE). */
     protected $fillable = ['title', 'salary'];
+
+    // employer method - if have a job and need information about the employer
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
 }
 
 /* Model is a key term, comes from the MVC arcitecture. Model, View, Controller.
