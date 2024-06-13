@@ -25,6 +25,9 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Job::class);
             /* handle our tag id column */
             $table->foreignIdFor(\App\Models\Tag::class);
+            /* when create a new record in pivot table, would I like to track the time stamp 
+            for when that happened */
+            $table->timestamps();
         });
     }
 
