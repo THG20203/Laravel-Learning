@@ -14,8 +14,17 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             // Initially a name should be fine
-            $table->strong("name");
+            $table->string("name");
             $table->timestamps();
+        });
+        /* We have a jobs table, a tags table; in between we need a connecting table.
+        This is our pivot table. In here, could store the tag id as well as the job id. */
+        Schema::create('job_tag', function (Blueprint $table) {
+            $table->id();
+            /* handle our job id column */
+            $table->foreignIdFor(\App\Models\Job::class);
+            /* handle our tag id column */
+            $table->foreignIdFor(\App\Models\Tag::class);
         });
     }
 
