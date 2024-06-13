@@ -8,19 +8,8 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
-    // Eager load jobs with the employer for each one
-
-    /* Job::with('employer'): This line tells Eloquent to prepare a query that will retrieve Job 
-    models and, at the same time, load the associated employer relationships. The employer is 
-    expected to be a defined relationship (like belongsTo or hasOne) in the Job model class. */
-
-    /* ->get(): This method executes the query and retrieves the results. It fetches all records 
-    from the jobs table and their related employer data in one go, rather than querying for the 
-    employer each time a job is accessed, which would happen in lazy loading. */
-
-    /* get call getting every single record from the jobs table - so going to switch it to paginate */
-
-    $jobs = Job::with('employer')->get();
+    /* for first argument can specify how many records do we want to show per page */
+    $jobs = Job::with('employer')->paginate(3);
 
     return view('jobs', ["jobs" => $jobs]);
 });
