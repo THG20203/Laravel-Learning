@@ -36,3 +36,9 @@ return new class extends Migration
         Schema::dropIfExists('tags');
     }
 };
+
+/* Pivot table:
+Allows users to reorganize, summarize, and analyze large datasets in a tabular format without 
+altering the original data. */
+/* This functionality is essential for spotting trends, making comparisons, and discovering 
+patterns in data, making pivot tables a powerful tool for quick data analysis and reporting. */
