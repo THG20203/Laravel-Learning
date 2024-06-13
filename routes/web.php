@@ -18,6 +18,8 @@ Route::get('/jobs', function () {
     from the jobs table and their related employer data in one go, rather than querying for the 
     employer each time a job is accessed, which would happen in lazy loading. */
 
+    /* get call getting every single record from the jobs table - so going to switch it to paginate */
+
     $jobs = Job::with('employer')->get();
 
     return view('jobs', ["jobs" => $jobs]);
