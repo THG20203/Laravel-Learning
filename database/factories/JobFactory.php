@@ -2,6 +2,11 @@
 
 namespace Database\Factories;
 
+/* you've defined a JobFactory class in the Database\Factories namespace and you're extending Laravel's 
+built-in Factory class to create a factory for the Job model. You use 'use App\Models\Employer;' at the 
+top of your file to bring the Employer model into the scope of your factory.  */
+
+use App\Models\Employer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
