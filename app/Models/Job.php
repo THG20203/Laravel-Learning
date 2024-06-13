@@ -24,8 +24,8 @@ class Job extends Model
     // method to access all the tags for job
     public function tags()
     {
-        // belongs to and hasMany combines to create belongsToMany
-        return $this->belongsToMany(Tag::class);
+        /* foreignPivotKey is overwriting the foreignPivotKey being set at NULL */
+        return $this->belongsToMany(Job::class, foreignPivotKey: "job_listing_id");
     }
 }
 

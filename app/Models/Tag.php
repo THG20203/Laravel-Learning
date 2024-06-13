@@ -11,7 +11,6 @@ class Tag extends Model
 
     public function jobs()
     {
-        /* foreignPivotKey is overwriting the foreignPivotKey being set at NULL */
-        return $this->belongsToMany(Job::class, foreignPivotKey: "job_listing_id");
+        return $this->belongsToMany(Job::class, relatedPivotKey: "job_listing_id");
     }
 }
