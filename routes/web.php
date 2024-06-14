@@ -28,7 +28,11 @@ Route::get('/jobs/{id}', function ($id) {
 
 // Writing out first post request 
 route::post('/jobs', function () {
-    /* Skipping validation for now */
+    request()->validate([
+        /* provide an array of attributes that need validation */
+        "title" => ["required", "min:3"],
+        "salary" => ["required"],
+    ]);
 
     Job::create([
         'title' => request('title'),
