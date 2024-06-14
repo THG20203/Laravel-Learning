@@ -10,7 +10,6 @@ Route::get('/', function () {
 Route::get('/jobs', function () {
     /* for first argument can specify how many records do we want to show per page */
     $jobs = Job::with('employer')->cursorPaginate(3);
-
     return view('jobs.index', ["jobs" => $jobs]);
 });
 
@@ -22,7 +21,7 @@ Route::get("/jobs/create", function () {
 // Wildcard should go close to the bottom of route declarations
 Route::get('/jobs/{id}', function ($id) {
     $job = Job::find($id);
-    return view('job.show', ['job' => $job]);
+    return view('jobs.show', ['job' => $job]);
 });
 
 Route::get('/contact', function () {
