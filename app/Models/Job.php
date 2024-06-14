@@ -11,9 +11,8 @@ class Job extends Model
 
     protected $table = "job_listings";
 
-    /* add property to job class called fillable - represents all of the attributes that 
-    are able to be mass assigned (and those attributes ALONE). */
-    protected $fillable = ['title', 'salary', 'employer_id'];
+    /* fields that should be guarded - empty array - don't need to guard anything */
+    protected $guarded = [];
 
     // employer method - if have a job and need information about the employer
     public function employer()
