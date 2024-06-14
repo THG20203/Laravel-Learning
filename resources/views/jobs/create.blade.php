@@ -17,7 +17,11 @@
   }
   ```
 -->
-<form>
+<!-- Form functionality -->
+<form method="POST" action="/jobs">
+    <!-- blade directive at the top of the file -->
+    @csrf
+    
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
         <h2 class="text-base font-semibold leading-7 text-gray-900">Create a new job</h2>
