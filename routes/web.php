@@ -26,9 +26,8 @@ Route::get('/jobs/{id}', function ($id) {
 
 // Writing out first post request 
 route::post('/jobs', function () {
-    /* How do we get the attributes from the form? Can use request helper function.
-    From request, give me all the attributes */
-    dd(request()->all());
+    /* How do we get the attributes from the form? Can use request helper function. */
+    dd(request('title'));
 });
 
 Route::get('/contact', function () {
