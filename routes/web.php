@@ -8,8 +8,10 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
+    /* want to see the most recently create job first. hence adding latest() method. Adds an order by clause
+    to SQL query. */
     /* for first argument can specify how many records do we want to show per page */
-    $jobs = Job::with('employer')->cursorPaginate(3);
+    $jobs = Job::with('employer')->latest()->cursorPaginate(3);
     return view('jobs.index', ["jobs" => $jobs]);
 });
 
