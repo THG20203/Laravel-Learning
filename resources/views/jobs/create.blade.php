@@ -39,7 +39,7 @@
                   only on thatt condition should we procede -->
                   @error('title')
                     <!-- Message varialbe is only available in error directive -->
-                    <p class="text-xs text-red-500 font-semibold">{{ $message }}</p>
+                    <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
                   @enderror
             </div>
           </div>
