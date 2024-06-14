@@ -29,10 +29,14 @@ route::post('/jobs', function () {
     /* Skipping validation for now */
 
     Job::create([
-        'title' => '',
-        'salary' => '',
-        'employer_id' => '',
+        'title' => request('title'),
+        'salary' => request('salary'),
+        /* Whilst I haven't done authentication, will hard code an employer. */
+        'employer_id' => 1,
     ]);
+
+    /* after finishing entering the form would be good to redirect to the jobs page */
+    return redirect("/jobs");
 });
 
 Route::get('/contact', function () {
