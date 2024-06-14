@@ -26,8 +26,13 @@ Route::get('/jobs/{id}', function ($id) {
 
 // Writing out first post request 
 route::post('/jobs', function () {
-    /* How do we get the attributes from the form? Can use request helper function. */
-    dd(request('title'));
+    /* Skipping validation for now */
+
+    Job::create([
+        'title' => '',
+        'salary' => '',
+        'employer_id' => '',
+    ]);
 });
 
 Route::get('/contact', function () {
