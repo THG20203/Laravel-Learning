@@ -45,14 +45,28 @@ route::post('/jobs', function () {
     return redirect("/jobs");
 });
 
+// Edit
 Route::get('/jobs/{id}/edit', function ($id) {
     $job = Job::find($id);
     return view('jobs.edit', ['job' => $job]);
 });
 
+// Update
+Route::patch("/jobs/{id}", function ($id) {
+});
+
+// Destroy
+Route::delete("/jobs/{id}", function ($id) {
+});
+
+
+// Contact
 Route::get('/contact', function () {
     return view('contact');
 });
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database
+
+// PATCH - updating a resource
+// DELETE - deleting a resource 
