@@ -53,3 +53,6 @@ Route::get('/jobs/{id}/edit', function ($id) {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+// GET - getting a page
+// POST - submitting a form -> stores data in a database
