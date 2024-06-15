@@ -68,6 +68,8 @@ Route::patch("/jobs/{id}", function ($id) {
     /* update each job individually */
     $job->title = request('title');
     $job->salary = request('salary');
+    /* save within database */
+    $job->save();
 
     // and persist
     // redirect
