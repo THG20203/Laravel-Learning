@@ -62,21 +62,39 @@ Route::patch("/jobs/{id}", function ($id) {
     // authorize - i.e. do you have permission to update the job (On hold..)
     // update the job
 
-    /* find the job? */
-    $job = Job::find($id);
+    /* find the job? - use findOrFail -> i.e. try and find a job with matching id, but 
+    if couldn't, abort */
+    $job = Job::findOrFail($id);
 
-    /* update each job individually */
+    /* update each job 
     $job->title = request('title');
     $job->salary = request('salary');
-    /* save within database */
-    $job->save();
+    /* save within database 
+    $job->save(); */
+
+    /* alternative way of updating job is below: */
+    $job->update([
+        'title' => request('title'),
+        'salary' => request('salary'),
+    ]);
 
     // and persist
     // redirect
+    // '/jobs/' . $job->id concatenates these to form a single string URL.
+    return redirect('/jobs/' . $job->id);
 });
 
 // Destroy
 Route::delete("/jobs/{id}", function ($id) {
+    // authorise (On hold...)
+
+
+    // delete the job
+    $job = Job::findOrFail($id);
+    $job->delete();
+
+    // redirect
+    return redirect();
 });
 
 
