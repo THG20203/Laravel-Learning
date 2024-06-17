@@ -20,9 +20,11 @@ Route::get("/jobs/create", function () {
     return view('jobs.create');
 });
 
-// Wildcard should go close to the bottom of route declarations
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
+// Show - (Wildcard should go close to the bottom of route declarations)
+/* Adding a type with Job $job - I expect a job instance */
+/* (Explanation from Lecture 19 for context). Wildcard and parameter name - so {job} and $job in that first 
+line need to be identical. Job is adding a types to the parameter */
+Route::get('/jobs/{job}', function (Job $job) {
     return view('jobs.show', ['job' => $job]);
 });
 
