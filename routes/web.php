@@ -37,13 +37,6 @@ Route::patch("/jobs/{job}", function (Job $job) {
 
 // Destroy
 Route::delete("/jobs/{job}", function (Job $job) {
-    // authorise (On hold...)
-
-    // delete the job
-    $job->delete();
-
-    // redirect - send you back to index job view, sowing all the jobs
-    return redirect("/jobs");
 });
 
 
