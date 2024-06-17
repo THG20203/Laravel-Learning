@@ -14,13 +14,6 @@ Route::get('/', function () {
 /* below - first argument is the job  controller, second operation is the operation we want laravel to call
 in this case its index */
 Route::get('/jobs', [JobController::class, 'index']);
-// Route::get('/jobs', function () {
-/* want to see the most recently create job first. hence adding latest() method. Adds an order by clause
-    to SQL query. */
-/* for first argument can specify how many records do we want to show per page */
-//    $jobs = Job::with('employer')->latest()->simplePaginate(3);
-//    return view('jobs.index', ["jobs" => $jobs]); 
-// });
 
 // Show a page to create a new job
 Route::get("/jobs/create", function () {
