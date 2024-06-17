@@ -73,5 +73,13 @@
       </div>
     </div>
   </form>
-  
+
+  <!-- Need a delete request for the delete button. But can't put one form in another. Using post on the form cause the browser
+  doesn't understand delete. Subsequently will use method directive to set it to delete -->
+  <!-- Remember we're hiding the form, cause just want to see delete button above -->
+  <form method="POST" action="/jobs/{{ $job->id }}" class="hidden">
+    <!-- Provide token to guarentee this is coming from the current site with first directive -->
+    @csrf
+    @method('DELETE')
+  </form>
 </x-layout>
