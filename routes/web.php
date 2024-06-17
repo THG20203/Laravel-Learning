@@ -4,8 +4,11 @@
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
+/* Typically put all the views at the top */
 // Shorthand for displaying view for home 
 Route::view('/', 'home');
+// Shorthand for displaying view for contact
+Route::view('/contact', 'contact');
 
 /* Route resources. resource registers all of the routes for a a typical restful or resourceful 
 controller. */
@@ -15,8 +18,7 @@ controller. */
 // Third argument is except, rule out things we don't need routes for that would normallhy be in resource
 Route::resource('jobs', JobController::class, ['except' => ['edit']]);
 
-// Shorthand for displaying view for contact
-Route::view('/contact', 'contact');
+
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database
