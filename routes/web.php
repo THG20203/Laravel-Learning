@@ -9,35 +9,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Index (for jobs)
 
-/* below - first argument is the job  controller, second operation is the operation we want laravel to call
-in this case its index */
 Route::get('/jobs', [JobController::class, 'index']);
-
-// Show a page to create a new job
-Route::get("/jobs/create", function () {
-});
-
-// Show 
-Route::get('/jobs/{job}', function (Job $job) {
-});
-
-// Store
-route::post('/jobs', function () {
-});
-
-// Edit
-Route::get('/jobs/{job}/edit', function (Job $job) {
-});
-
-// Update
-Route::patch("/jobs/{job}", function (Job $job) {
-});
-
-// Destroy
-Route::delete("/jobs/{job}", function (Job $job) {
-});
+Route::get("/jobs/create", [JobController::class, 'create']);
+Route::get('/jobs/{job}', [JobController::class], 'show');
+Route::post('/jobs', [JobController::class], 'store');
+Route::get('/jobs/{job}/edit', [JobController::class], 'edit');
+Route::patch("/jobs/{job}", [JobController::class], 'update');
+Route::delete("/jobs/{job}", [JobController::class], 'destroy');
 
 
 // Contact
@@ -47,6 +26,7 @@ Route::get('/contact', function () {
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database
-
+/* Patch and delete cannot be recognised directly by browser like GET and POST can be, so will need 
+blade directive */
 // PATCH - updating a resource
 // DELETE - deleting a resource 
