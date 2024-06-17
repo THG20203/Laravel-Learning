@@ -53,7 +53,7 @@ Route::get('/jobs/{job}/edit', function (Job $job) {
 });
 
 // Update
-Route::patch("/jobs/{id}", function ($id) {
+Route::patch("/jobs/{job}", function (Job $id) {
     // validate
     request()->validate([
         'title' => ['required', 'min:3'],
@@ -86,12 +86,11 @@ Route::patch("/jobs/{id}", function ($id) {
 });
 
 // Destroy
-Route::delete("/jobs/{id}", function ($id) {
+Route::delete("/jobs/{job}", function (Job $job) {
     // authorise (On hold...)
 
-
     // delete the job
-    Job::findOrFail($id)->delete();
+    $job->delete();
 
     // redirect - send you back to index job view, sowing all the jobs
     return redirect("/jobs");
