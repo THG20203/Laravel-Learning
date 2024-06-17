@@ -90,11 +90,10 @@ Route::delete("/jobs/{id}", function ($id) {
 
 
     // delete the job
-    $job = Job::findOrFail($id);
-    $job->delete();
+    Job::findOrFail($id)->delete();
 
-    // redirect
-    return redirect();
+    // redirect - send you back to index job view, sowing all the jobs
+    return redirect("/jobs");
 });
 
 
