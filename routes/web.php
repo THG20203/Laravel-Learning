@@ -12,7 +12,8 @@ controller. */
 
 // First argument is resource name. this will also be the url (in this case jobs)
 // Second argument is the controller that is responsible for it, in this case JobController
-Route::resource('jobs', JobController::class);
+// Third argument is except, rule out things we don't need routes for that would normallhy be in resource
+Route::resource('jobs', JobController::class, ['except' => ['edit']]);
 
 // Shorthand for displaying view for contact
 Route::view('/contact', 'contact');
