@@ -61,7 +61,7 @@
     </div>
   
     <div class="mt-6 flex items-center justify-between gap-x-6">
-      <div>
+      <div class="flex items-center">
         <button class="text-red-500 text-sm font-bold">Delete</button>
       </div>
 
