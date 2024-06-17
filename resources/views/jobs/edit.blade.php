@@ -62,7 +62,9 @@
   
     <div class="mt-6 flex items-center justify-between gap-x-6">
       <div class="flex items-center">
-        <button class="text-red-500 text-sm font-bold">Delete</button>
+        <!-- Targetting form created at bottom of this file with a form attribute on the button. 
+        It'll reference the id of the form button we want to correlate to -->
+        <button form="delete-form" class="text-red-500 text-sm font-bold">Delete</button>
       </div>
 
       <div class="flex items-center gap-x-6">
@@ -77,7 +79,7 @@
   <!-- Need a delete request for the delete button. But can't put one form in another. Using post on the form cause the browser
   doesn't understand delete. Subsequently will use method directive to set it to delete -->
   <!-- Remember we're hiding the form, cause just want to see delete button above -->
-  <form method="POST" action="/jobs/{{ $job->id }}" class="hidden">
+  <form method="POST" action="/jobs/{{ $job->id }}" class="hidden" id="delete-form">
     <!-- Provide token to guarentee this is coming from the current site with first directive -->
     @csrf
     @method('DELETE')
