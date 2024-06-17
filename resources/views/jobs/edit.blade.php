@@ -3,9 +3,11 @@
         Edit Job: {{ $job->title }}
     </x-slot:heading>
 <!-- Form functionality -->
-<form method="POST" action="/jobs">
+<form method="POST" action="/jobs/{{ $job->id }}">
     <!-- blade directive at the top of the file -->
     @csrf
+    <!-- blade directive to turn my post request into a patch -->
+    @method('PATCH');
     
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
