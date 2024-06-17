@@ -1,7 +1,7 @@
 <?php
 
 // Simplifying below - importing controller into web - short cut for code below
-use App\Http\Controller\JobController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 /* below - first argument is the job  controller, second operation is the operation we want laravel to call
 in this case its index */
-Route::get('/jobs', [JobController::class, 'index'])
+Route::get('/jobs', [JobController::class, 'index']);
 // Route::get('/jobs', function () {
 /* want to see the most recently create job first. hence adding latest() method. Adds an order by clause
     to SQL query. */
