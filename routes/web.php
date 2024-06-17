@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Index (for jobs)
 Route::get('/jobs', function () {
     /* want to see the most recently create job first. hence adding latest() method. Adds an order by clause
     to SQL query. */

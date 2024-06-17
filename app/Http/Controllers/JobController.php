@@ -8,6 +8,7 @@ class JobController extends Controller
 {
     public function index()
     {
+        dd("Hello");
     }
     public function create()
     {
