@@ -3,11 +3,9 @@
 // Simplifying below - importing controller into web - short cut for code below
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Job;
 
-Route::get('/', function () {
-    return view('home');
-});
+// Shorthand for displaying view for home 
+Route::view('/', 'home');
 
 /* Job routes together below */
 Route::get('/jobs', [JobController::class, 'index']);
@@ -18,11 +16,8 @@ Route::get('/jobs/{job}/edit', [JobController::class], 'edit');
 Route::patch("/jobs/{job}", [JobController::class], 'update');
 Route::delete("/jobs/{job}", [JobController::class], 'destroy');
 
-
-// Contact
-Route::get('/contact', function () {
-    return view('contact');
-});
+// Shorthand for displaying view for contact
+Route::view('/contact', 'contact');
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database
