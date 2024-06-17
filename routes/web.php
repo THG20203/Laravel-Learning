@@ -53,27 +53,14 @@ Route::get('/jobs/{job}/edit', function (Job $job) {
 });
 
 // Update
-Route::patch("/jobs/{job}", function (Job $id) {
+Route::patch("/jobs/{job}", function (Job $job) {
     // validate
     request()->validate([
         'title' => ['required', 'min:3'],
         'salary' => ['required']
     ]);
 
-    // authorize - i.e. do you have permission to update the job (On hold..)
-    // update the job
-
-    /* find the job? - use findOrFail -> i.e. try and find a job with matching id, but 
-    if couldn't, abort */
-    $job = Job::findOrFail($id);
-
-    /* update each job 
-    $job->title = request('title');
-    $job->salary = request('salary');
-    /* save within database 
-    $job->save(); */
-
-    /* alternative way of updating job is below: */
+    /* update job */
     $job->update([
         'title' => request('title'),
         'salary' => request('salary'),
