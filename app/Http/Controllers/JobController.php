@@ -27,14 +27,48 @@ class JobController extends Controller
     }
     public function store()
     {
+        request()->validate([
+            /* provide an array of attributes that need validation */
+            "title" => ["required", "min:3"],
+            "salary" => ["required"],
+        ]);
+
+        Job::create([
+            'title' => request('title'),
+            'salary' => request('salary'),
+            /* Whilst I haven't done authentication, will hard code an employer. */
+            'employer_id' => 1,
+        ]);
+
+        /* after finishing entering the form would be good to redirect to the jobs page */
+        return redirect("/jobs");
     }
-    public function edit()
+    public function edit(Job $job)
     {
+        return view('jobs.edit', ['job' => $job]);
     }
-    public function update()
+    public function update(Job $job)
     {
+        // validate
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'salary' => ['required']
+        ]);
+        // update job 
+        $job->update([
+            'title' => request('title'),
+            'salary' => request('salary'),
+        ]);
+        // and persist
+        // redirect
+        // '/jobs/' . $job->id concatenates these to form a single string URL.
+        return redirect('/jobs/' . $job->id);
     }
-    public function destroy()
+    public function destroy(Job $job)
     {
+        //authorize (On hold...)
+        $job->delete();
+        // redirect - send you back to index job view, showing all the jobs
+        return redirect('/jobs');
     }
 }
