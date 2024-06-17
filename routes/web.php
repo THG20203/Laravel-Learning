@@ -7,16 +7,12 @@ use Illuminate\Support\Facades\Route;
 // Shorthand for displaying view for home 
 Route::view('/', 'home');
 
-/* Job route group where all assume Job Controller */
-Route::controller(JobController::class)->group(function () {
-    Route::get('/jobs', 'index');
-    Route::get("/jobs/create", 'create');
-    Route::get('/jobs/{job}', 'show');
-    Route::post('/jobs', 'store');
-    Route::get('/jobs/{job}/edit', 'edit');
-    Route::patch("/jobs/{job}", 'update');
-    Route::delete("/jobs/{job}", 'destroy');
-});
+/* Route resources. resource registers all of the routes for a a typical restful or resourceful 
+controller. */
+
+// First argument is resource name. this will also be the url (in this case jobs)
+// Second argument is the controller that is responsible for it, in this case JobController
+Route::resource('jobs', JobController::class);
 
 // Shorthand for displaying view for contact
 Route::view('/contact', 'contact');
