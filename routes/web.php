@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-
+/* Job routes together below */
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get("/jobs/create", [JobController::class, 'create']);
 Route::get('/jobs/{job}', [JobController::class], 'show');
