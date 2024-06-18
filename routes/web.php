@@ -23,6 +23,9 @@ Route::resource('jobs', JobController::class, ['except' => ['edit']]);
 /* Registered User Controller first then action which I'm going to call create cause I'm creating a 
 new user. -> */
 Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
+/* login */
+Route::get('/login', [RegisteredUserController::class, 'login']);
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database
