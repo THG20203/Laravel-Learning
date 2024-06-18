@@ -14,6 +14,10 @@ class SessionController extends Controller
     public function store()
     {
         // validate user
+        request()->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
 
         // attempt to login user
 
