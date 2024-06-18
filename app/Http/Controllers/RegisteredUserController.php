@@ -29,10 +29,13 @@ class RegisteredUserController extends Controller
             'password' => ['required', Password::min(6), 'confirmed'],
         ]);
 
-        // create the user in database 
-        User::create($attributes);
+        // create the user in database
+        /* store in user variable */
+        $user = User::create($attributes);
 
         // log in
+        /* first argument of login is the user I want to login. */
+        /* */
         Auth::login();
 
         // redirect somewhere
