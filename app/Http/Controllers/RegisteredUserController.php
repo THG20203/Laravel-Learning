@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
 {
@@ -12,11 +13,22 @@ class RegisteredUserController extends Controller
         /* return a view, putting it all under a auth namespace */
         return view('auth.register');
     }
+    /* what needs to happen to register a user. */
     public function store()
     {
         // validate
-        // create the user
+        request()->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required', 'email'],
+            /* Confirmed when you apply it to a request field, laravel is going to look for another attribute 
+            that has password_confirmation. Gunna make sure the 'password' attribute and the password confirmation
+            attribute match or are the same */
+            'password' => ['required', Password::min(6), 'confirmed'],
+        ]);
+
+        // create the user in database
         // log in
-        // redirect 
+        // redirect somewhere
     }
 }
