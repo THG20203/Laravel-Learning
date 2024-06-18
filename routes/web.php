@@ -28,6 +28,8 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 /* login - cause we're creating new session */
 Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
+/* If click log out that will hit the destroy method on the session controller */
+Route::post('/logout', [SessionController::class, 'destroy']);
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database

@@ -48,7 +48,11 @@
               <!-- Auth, so only when you are logged in should a log out button be there -->
               @auth
                 <!-- We should be using a post request rather than get request for log out, so use Form -->
-                <form action="">
+                <form method="POST" action="/logout">
+                  <!-- The @csrf directive adds a hidden input field with the name _token and a value that is the CSRF token.
+                  When the form is submitted, this token is included in the POST request.
+                  Laravel verifies the token before processing the logout request. -->
+                  @csrf
                   <x-form-button>Log Out</x-form-button>
                 </form>
               @endauth
