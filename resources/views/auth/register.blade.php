@@ -63,7 +63,7 @@
           <!-- input and error section -->
           <div class="mt-2">
               <!-- On email overwriting the type to make it email -->
-              <x-form-input name="password_confirmation" id="password_confirmation" type="password_confirmation" required />
+              <x-form-input name="password_confirmation" id="password_confirmation" type="password" required />
               <x-form-error name="password_confirmation" />
           </div>
         </x-form-field>
