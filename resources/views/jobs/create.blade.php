@@ -14,30 +14,27 @@
   
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           
-          <!-- Title of Job Form Field -->
+          <!-- Title of Job - Form Field -->
           <x-form-field>
             <x-form-label for="title">Title</x-form-label>
             <div class="mt-2">
               <!-- Form Input -->
-              <x-form-input placeholder="CEO" id="title" name="title" />
+              <x-form-input id="title" name="title" placeholder="CEO" />
               <!-- Form error component -->
               <x-form-error name="title" />
             </div>
           </x-form-field>
-  
-          <!-- Salary of Job Form Field -->
-          <div class="sm:col-span-4">
-                <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
-                <div class="mt-2">
-                  <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                    <input type="text" name="salary" id="salary" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="$50,000 per year" required>
-                  </div>
-                  @error('salary')
-                  <!-- Message varialbe is only available in error directive -->
-                  <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
-                @enderror
-                </div>
-          </div>
+
+           <!-- Title of Salary - Form Field -->
+           <x-form-field>
+            <x-form-label for="title">Salary</x-form-label>
+            <div class="mt-2">
+              <!-- Form Input -->
+              <x-form-input id="salary" name="salary" placeholder="$50,000" />
+              <!-- Form error component -->
+              <x-form-error name="salary" />
+            </div>
+          </x-form-field>
         </div>
 
         <!-- One method of validation -->
@@ -53,7 +50,6 @@
           @endif
         </div>
         --}}
-        
       </div>
     </div>
   
