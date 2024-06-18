@@ -15,15 +15,7 @@
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           
           <!-- Title of Job Form Field -->
-          <div class="sm:col-span-4">
-            <x-form-label for="title">Title</x-form-label>
-            <div class="mt-2">
-              <!-- Form Input -->
-              <x-form-input placeholder="CEO" required />
-              <!-- Form error component -->
-              <x-form-error name="title" />
-            </div>
-          </div>
+  
           <!-- Salary of Job Form Field -->
           <div class="sm:col-span-4">
                 <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
