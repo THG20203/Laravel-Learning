@@ -17,7 +17,7 @@ class RegisteredUserController extends Controller
     public function store()
     {
         // validate
-        $validatedAttributes = request()->validate([
+        $attributes = request()->validate([
             'first_name' => ['required'],
             'last_name' => ['required'],
             'email' => ['required', 'email'],
@@ -27,7 +27,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', Password::min(6), 'confirmed'],
         ]);
 
-        dd($validatedAttributes);
+        dd($attributes);
 
         // create the user in database
 
