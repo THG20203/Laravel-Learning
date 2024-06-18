@@ -73,7 +73,8 @@
     </div>
   
     <div class="mt-6 flex items-center justify-end gap-x-6">
-      <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+      <!-- This can be a simple link takes you back to the home page -->
+      <a href="/" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
       <x-form-button>Register</x-form-button>
     </div>
   </form>
