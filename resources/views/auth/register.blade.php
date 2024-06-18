@@ -9,7 +9,7 @@
     
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <!-- First Name -->
           <x-form-field>
             <!-- label section -->
@@ -44,13 +44,37 @@
             </div>
           </x-form-field>
 
+          <!-- Password -->
+          <x-form-field>
+            <!-- label section -->
+            <x-form-label for="password">Password</x-form-label>
+            <!-- input and error section -->
+            <div class="mt-2">
+                <!-- On email overwriting the type to make it email -->
+                <x-form-input name="password" id="password" type="password" />
+                <x-form-error name="password" />
+            </div>
+          </x-form-field>
+
+          <!-- Password Confirmation -->
+          <x-form-field>
+            <!-- label section -->
+            <x-form-label for="password_confirmation">Confirm Password</x-form-label>
+            <!-- input and error section -->
+            <div class="mt-2">
+                <!-- On email overwriting the type to make it email -->
+                <x-form-input name="password_confirmation" id="password_confirmation" type="password_confirmation" />
+                <x-form-error name="password_confirmation" />
+            </div>
+          </x-form-field>
+
         </div>
       </div>
     </div>
   
     <div class="mt-6 flex items-center justify-end gap-x-6">
       <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-      <x-form-button>Save</x-form-button>
+      <x-form-button>Register</x-form-button>
     </div>
   </form>
   
