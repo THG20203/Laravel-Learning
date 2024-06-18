@@ -21,12 +21,7 @@
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                 <input type="text" name="title" id="title" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Example Job" required>
               </div>
-                 <!-- New error blade directive. reference the attribute name (title). If we have a validation error for the title
-                  only on thatt condition should we procede -->
-                  @error('title')
-                    <!-- Message varialbe is only available in error directive -->
-                    <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
-                  @enderror
+              <x-form-error></x-form-error>
             </div>
           </div>
           <!-- Salary of Job Form Field -->
