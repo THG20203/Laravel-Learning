@@ -47,7 +47,10 @@
 
               <!-- Auth, so only when you are logged in should a log out button be there -->
               @auth
-                <x-nav-link href="/logout">Log Out</x-nav-link>
+                <!-- We should be using a post request rather than get request for log out, so use Form -->
+                <form action="">
+                  <x-form-button>Log Out</x-form-button>
+                </form>
               @endauth
             </div>
           </div>
