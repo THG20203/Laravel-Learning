@@ -3,6 +3,7 @@
 // Simplifying below - importing controllers into web - short cut for code below
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /* Typically put all the views at the top */
@@ -24,8 +25,8 @@ Route::resource('jobs', JobController::class, ['except' => ['edit']]);
 new user. -> */
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
-/* login */
-Route::get('/login', [RegisteredUserController::class, 'login']);
+/* login - cause we're creating new session */
+Route::get('/login', [SessionController::class, 'login']);
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database

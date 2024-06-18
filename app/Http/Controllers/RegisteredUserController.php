@@ -14,11 +14,6 @@ class RegisteredUserController extends Controller
     }
     public function store()
     {
-        dd('todo');
-    }
-    public function login()
-    {
-        /* return a view, putting it all under a auth namespace */
-        return view('auth.login');
+        dd(request()->all());
     }
 }
