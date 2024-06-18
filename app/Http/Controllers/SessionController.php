@@ -16,6 +16,10 @@ class SessionController extends Controller
         // validate user
 
         // attempt to login user
+
+        // regenerate the session token
+
+        // redirect
     }
     public function destroy()
     {
