@@ -35,21 +35,8 @@
               <x-form-error name="salary" />
             </div>
           </x-form-field>
+          
         </div>
-
-        <!-- One method of validation -->
-        {{--
-        <div class="mt-10">
-          @if($errors->any()) 
-             If there are any validation errors, lets loop over them and display them in list items
-            <ul>
-              @foreach($errors->all() as $error)
-                <li class="text-red-500 italic">{{ $error }}</li>
-              @endforeach
-            </ul>
-          @endif
-        </div>
-        --}}
       </div>
     </div>
   
