@@ -10,4 +10,8 @@ class SessionController extends Controller
     {
         return view('auth.login');
     }
+    public function store()
+    {
+        dd(request()->all());
+    }
 }

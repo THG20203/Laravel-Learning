@@ -27,6 +27,7 @@ Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 /* login - cause we're creating new session */
 Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
 
 // GET - getting a page
 // POST - submitting a form -> stores data in a database

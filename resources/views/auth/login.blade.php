@@ -3,7 +3,7 @@
         Login
     </x-slot:heading>
 <!-- Form functionality -->
-<form method="POST" action="/register">
+<form method="POST" action="/login">
     <!-- blade directive at the top of the file -->
     @csrf
     
