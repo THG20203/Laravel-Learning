@@ -35,9 +35,9 @@ class RegisteredUserController extends Controller
 
         // log in
         /* first argument of login is the user I want to login. */
-        /* */
-        Auth::login();
+        Auth::login($user);
 
         // redirect somewhere
+        return redirect('/jobs');
     }
 }
