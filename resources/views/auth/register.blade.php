@@ -10,6 +10,7 @@
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <!-- First Name -->
           <x-form-field>
             <!-- label section -->
             <x-form-label for="first_name">First Name</x-form-label>
@@ -20,15 +21,29 @@
             </div>
           </x-form-field>
 
+          <!-- Last Name -->
           <x-form-field>
             <!-- label section -->
-            <x-form-label for="first_name">Last Name</x-form-label>
+            <x-form-label for="last_name">Last Name</x-form-label>
             <!-- input and error section --> 
             <div class="mt-2">
                 <x-form-input name="last_name" id="last_name" />
                 <x-form-error name="last_name" />
             </div>
           </x-form-field>
+
+          <!-- Email -->
+          <x-form-field>
+            <!-- label section -->
+            <x-form-label for="email">Email</x-form-label>
+            <!-- input and error section -->
+            <div class="mt-2">
+                <!-- On email overwriting the type to make it email -->
+                <x-form-input name="email" id="email" type="email" />
+                <x-form-error name="email" />
+            </div>
+          </x-form-field>
+
         </div>
       </div>
     </div>
