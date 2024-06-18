@@ -18,8 +18,6 @@ controller. */
 // Third argument is except, rule out things we don't need routes for that would normallhy be in resource
 Route::resource('jobs', JobController::class, ['except' => ['edit']]);
 
-
-
 // GET - getting a page
 // POST - submitting a form -> stores data in a database
 /* Patch and delete cannot be recognised directly by browser like GET and POST can be, so will need 
