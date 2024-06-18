@@ -44,6 +44,11 @@
                 <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
                 <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
               @endguest
+
+              <!-- Auth, so only when you are logged in should a log out button be there -->
+              @auth
+                <x-nav-link href="/logout">Log Out</x-nav-link>
+              @endauth
             </div>
           </div>
           <div class="-mr-2 flex md:hidden">

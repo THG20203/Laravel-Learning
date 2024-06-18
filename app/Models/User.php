@@ -34,7 +34,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Get the attributes that should be cast. Cast is manipulating a value when you fethc it or set it
      *
      * @return array<string, string>
      */
@@ -42,6 +42,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            /* when we set a password on user, want to automatically hash it. */
             'password' => 'hashed',
         ];
     }
