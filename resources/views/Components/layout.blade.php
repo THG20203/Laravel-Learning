@@ -41,8 +41,8 @@
               <!-- Check if you're logged in as to if you need to show log in and register. i.e. if you 
               are a guest you are not registered -->
               @guest
-                <x-nav-link href="/login">Log In</x-nav-link>
-                <x-nav-link href="/register">Register</x-nav-link>
+                <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
+                <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
               @endguest
             </div>
           </div>
