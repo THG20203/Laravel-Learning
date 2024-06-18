@@ -16,7 +16,7 @@
             <x-form-label for="first_name">First Name</x-form-label>
             <!-- input and error section --> 
             <div class="mt-2">
-                <x-form-input name="first_name" id="first_name" />
+                <x-form-input name="first_name" id="first_name" required />
                 <x-form-error name="first_name" />
             </div>
           </x-form-field>
@@ -27,7 +27,7 @@
             <x-form-label for="last_name">Last Name</x-form-label>
             <!-- input and error section --> 
             <div class="mt-2">
-                <x-form-input name="last_name" id="last_name" />
+                <x-form-input name="last_name" id="last_name" required />
                 <x-form-error name="last_name" />
             </div>
           </x-form-field>
@@ -39,7 +39,7 @@
             <!-- input and error section -->
             <div class="mt-2">
                 <!-- On email overwriting the type to make it email -->
-                <x-form-input name="email" id="email" type="email" />
+                <x-form-input name="email" id="email" type="email" required />
                 <x-form-error name="email" />
             </div>
           </x-form-field>
@@ -51,7 +51,7 @@
             <!-- input and error section -->
             <div class="mt-2">
                 <!-- On email overwriting the type to make it email -->
-                <x-form-input name="password" id="password" type="password" />
+                <x-form-input name="password" id="password" type="password" required />
                 <x-form-error name="password" />
             </div>
           </x-form-field>
@@ -63,7 +63,7 @@
             <!-- input and error section -->
             <div class="mt-2">
                 <!-- On email overwriting the type to make it email -->
-                <x-form-input name="password_confirmation" id="password_confirmation" type="password_confirmation" />
+                <x-form-input name="password_confirmation" id="password_confirmation" type="password_confirmation" required />
                 <x-form-error name="password_confirmation" />
             </div>
           </x-form-field>
