@@ -19,7 +19,7 @@
             <x-form-label for="title">Title<x-form-label>
             <div class="mt-2">
               <!-- Form Input -->
-              <x-form-input />
+              <x-form-input name="title" id="title" placeholder="CEO" required />
               <!-- Form error component -->
               <x-form-error name="title" />
             </div>
