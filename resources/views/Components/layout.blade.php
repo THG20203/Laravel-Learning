@@ -38,11 +38,12 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-4 flex items-center md:ml-6">
-              <!-- Check if you're logged in as to if you need to show log in and register -->
-              @auth
-              @endauth
+              <!-- Check if you're logged in as to if you need to show log in and register. i.e. if you 
+              are a guest you are not registered -->
+              @guest
                 <x-nav-link href="/login">Log In</x-nav-link>
                 <x-nav-link href="/register">Register</x-nav-link>
+              @endguest
             </div>
           </div>
           <div class="-mr-2 flex md:hidden">
