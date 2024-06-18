@@ -14,6 +14,10 @@
             <!-- Register Form field label -->
             <x-form-label for="first_name">First Name</x-form-label>
             <!-- Register Form Field input section --> 
+            <div class="mt-2">
+                <x-form-input name="first_name" id="first_name" />
+                <x-form-error name="first_name" />
+            </div>
           </x-form-field>
         </div>
       </div>
