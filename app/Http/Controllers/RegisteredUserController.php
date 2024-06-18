@@ -14,6 +14,9 @@ class RegisteredUserController extends Controller
     }
     public function store()
     {
-        dd(request()->all());
+        // validate
+        // create the user
+        // log in
+        // redirect 
     }
 }
