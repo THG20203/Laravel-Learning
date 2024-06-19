@@ -22,16 +22,20 @@ class SessionController extends Controller
         ]);
 
         // attempt to login user
-        /* Attempt parameters:
+
+        /* attempt parameters:
         First parameter - credentials
         Second parameter - if you want the application to remember the user, set remember to true.
-        - Credentials are the email address and the password.
+        - Credentials are the email address and the password. - so pass in attributes variable 
         */
-        Auth::attempt();
+        Auth::attempt($attributes);
 
         // regenerate the session token
+        /* Security thing which recycles the session token */
+        request()->session()->regenerate();
 
         // redirect
+        return redirect('/jobs');
     }
     public function destroy()
     {
