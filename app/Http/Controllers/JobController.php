@@ -56,10 +56,10 @@ class JobController extends Controller
         /* If the user who created this job is not the person who is currently signed in, then you don't 
         have authorisation. */
 
-        // IF YOU ARE SIGNED IN
+        // IF THE USER BEHIND THE CURRENT JOB IS NOT THE USER SIGNED IN, YOU ARE NOT AUTHORISED
         /* give me employer behind the job, then give me the user/ manager responsible for that employer, 
         then new method 'is'. If is the currently Authentication user, then you're authorised. */
-        if ($job->employer->user->is(Auth::user())) {
+        if ($job->employer->user->isNot(Auth::user())) {
         }
 
 
