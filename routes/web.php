@@ -23,7 +23,10 @@ Route::get('/jobs/{job}', [JobController::class, 'show']);
 in the relevant job. job at end of the can is referring to whatever the wildcard {job} is. */
 /* this ->can('edit-job', 'job') is doing the job the Gate::authorize WAS doing in the JobController, so it can
 be removed. */
-Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware('auth')->can('edit-job', 'job');
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
+    ->middleware('auth')
+    ->can('edit-job', 'job');
+
 Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
