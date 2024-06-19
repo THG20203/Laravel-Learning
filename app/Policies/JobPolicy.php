@@ -9,58 +9,13 @@ use Illuminate\Auth\Access\Response;
 class JobPolicy
 {
     /**
-     * Determine whether the user can view any models.
+     * Determine whether the user can edit any models. This accepts the user and the job.
+     * So policies are almost like a version of a gate, sort of the same thing, just an interface for it.
      */
-    public function viewAny(User $user): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Job $job): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Job $job): bool
+    public function edit()
     {
         //
     }
 }
+
+/* Policies - connected to eloquent models */
