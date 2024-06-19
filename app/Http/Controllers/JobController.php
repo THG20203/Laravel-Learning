@@ -50,10 +50,15 @@ class JobController extends Controller
     {
         // GATE AUTHORISED CONTENT
         /* Use Gate facade - conditionally allow entry if you meet certain criteria, if you are
-        authorised that gate will open, but if you are unauthroised the gate is locked. */
+        authorised that gate will open, but if you are unauthorised the gate is locked. */
         /* First: Given Gate the name edit-job. */
         /* Second: PAss a function that will accept the signed in user, as well as the job we are authorising. */
         Gate::define('edit-job', function (User $user, Job $job) {
+            /* within here we should return a boolean, indicates whether or not user is authorised to edit that 
+            job. */
+            /* return if the employer user IS the currently signed in user. Simpler to just to return this as the true value
+            in the Gate boolean */
+            return $job->employer->user->is(Auth::user());
         });
 
         // IF NOT SIGNED IN
@@ -66,13 +71,6 @@ class JobController extends Controller
         /* If the user who created this job is not the person who is currently signed in, then you don't 
         have authorisation. */
 
-        // IF THE USER BEHIND THE CURRENT JOB IS NOT THE USER SIGNED IN, YOU ARE NOT AUTHORISED
-        /* give me employer behind the job, then give me the user/ manager responsible for that employer, 
-        then new method 'is'. If is the currently Authentication user, then you're authorised. */
-        if ($job->employer->user->isNot(Auth::user())) {
-            // if you are signed in but are not the authorised user for that job, abort
-            abort(403); // 403 error meaning forbidden rather than 404 which means not found/ doesn't exist
-        }
 
 
         return view('jobs.edit', ['job' => $job]);
