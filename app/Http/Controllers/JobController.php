@@ -48,7 +48,12 @@ class JobController extends Controller
     }
     public function edit(Job $job)
     {
-        /* */
+        /* User model with laravel right out of the box includes access to a can and cannot method.  
+        $model->can() - Determine if the entity has the given abilities. So do can() then reference one of my gates here,
+        in this case 'edit-job'. If stay */
+        if (Auth::user()->cannot('edit_job', $job)) {
+            dd('Failure');
+        };
 
         /* now can reference that logic to authorie user - providing the name 'edit-job' and then the $job (job variable) we 
         are referring to. */
