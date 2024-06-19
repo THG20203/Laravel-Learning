@@ -61,6 +61,11 @@ class JobController extends Controller
             return $job->employer->user->is($user);
         });
 
+        /* Explanation of the logic above (for understanding) - taking logic and extracting it into its own gate. The gate
+        is called edit-job and the logic for whether you can edit a job is look at the user responsible for the job 
+        (the user-> section) and see if that 'user' is the same as the user that is currently signed in, (which we get from 
+        (User $user) */
+
         // IF NOT SIGNED IN
         /* to edit job, should be signed in so going to check if you're a guest, if so redirect you 
         to the login page. */
