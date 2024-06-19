@@ -25,7 +25,10 @@ in the relevant job. job at end of the can is referring to whatever the wildcard
 be removed. */
 Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
     ->middleware('auth')
-    ->can('edit-job', 'job');
+    /* No longer referencing a Gate closure from the AppServiceProvider - have a dedicated edit method in the 
+    JobPolicy. So we reference the method name on the policy then feed it the corresponding job model. Laravel
+    is smart enough to know there is a link between job model and job policy. */
+    ->can('edit', 'job');
 
 Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
