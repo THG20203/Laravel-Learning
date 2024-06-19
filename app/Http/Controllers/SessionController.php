@@ -13,13 +13,21 @@ class SessionController extends Controller
     }
     public function store()
     {
-        // validate user
-        request()->validate([
+        // validate user - save validated users to a an attributes variable 
+        $attributes = request()->validate([
+            /* Email is required - email field must be present in the request data. Email - email field
+            must contain a valid email address. */
             'email' => ['required', 'email'],
             'password' => ['required']
         ]);
 
         // attempt to login user
+        /* Attempt parameters:
+        First parameter - credentials
+        Second parameter - if you want the application to remember the user, set remember to true.
+        - Credentials are the email address and the password.
+        */
+        Auth::attempt();
 
         // regenerate the session token
 
