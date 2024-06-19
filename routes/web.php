@@ -12,16 +12,14 @@ Route::view('/', 'home');
 // Shorthand for displaying view for contact
 Route::view('/contact', 'contact');
 
-/* Route resources. resource registers all of the routes for a a typical restful or resourceful 
-controller. */
-
-// First argument is resource name. this will also be the url (in this case jobs)
-// Second argument is the controller that is responsible for it, in this case JobController
-
-/* ->middleware('auth');: This applies the auth middleware to all routes defined by this 
-resource. The auth middleware ensures that only authenticated users can access these routes. 
-If a user is not authenticated, they will be redirected to the login page. */
-Route::resource('jobs', JobController::class)->middleware('auth');
+/* Adding all of the URL's back in, so can apply middleware on a per route basis. */
+Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs/create', [JobController::class, 'create']);
+Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
+Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware(['auth', 'can:edit-job,job']);
+Route::patch('/jobs/{job}', [JobController::class, 'update']);
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
 // Auth
 /* Registered User Controller first then action which I'm going to call create cause I'm creating a 
