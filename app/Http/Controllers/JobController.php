@@ -60,6 +60,8 @@ class JobController extends Controller
         /* give me employer behind the job, then give me the user/ manager responsible for that employer, 
         then new method 'is'. If is the currently Authentication user, then you're authorised. */
         if ($job->employer->user->isNot(Auth::user())) {
+            // if you are signed in but are not the authorised user for that job, abort
+            abort();
         }
 
 
