@@ -17,8 +17,11 @@ controller. */
 
 // First argument is resource name. this will also be the url (in this case jobs)
 // Second argument is the controller that is responsible for it, in this case JobController
-// Third argument is except, rule out things we don't need routes for that would normallhy be in resource
-Route::resource('jobs', JobController::class);
+
+/* ->middleware('auth');: This applies the auth middleware to all routes defined by this 
+resource. The auth middleware ensures that only authenticated users can access these routes. 
+If a user is not authenticated, they will be redirected to the login page. */
+Route::resource('jobs', JobController::class)->middleware('auth');
 
 // Auth
 /* Registered User Controller first then action which I'm going to call create cause I'm creating a 
@@ -26,7 +29,8 @@ new user. -> */
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 /* login - cause we're creating new session */
-Route::get('/login', [SessionController::class, 'create']);
+/* Named Route: login. */
+Route::get('/login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);
 /* If click log out that will hit the destroy method on the session controller */
 Route::post('/logout', [SessionController::class, 'destroy']);
