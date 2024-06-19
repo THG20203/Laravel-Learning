@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -28,7 +29,15 @@ class SessionController extends Controller
         Second parameter - if you want the application to remember the user, set remember to true.
         - Credentials are the email address and the password. - so pass in attributes variable 
         */
-        Auth::attempt($attributes);
+
+        /* if you could not login the user, then throw a validation exception, gets converted into a validation 
+        error in the form. */
+        if (!Auth::attempt($attributes)) {
+            throw ValidationException::withMessages([
+                /* withMessages = messages to associate the error with. */
+                'email' => 'Sorry, those credentials do not match.'
+            ]);
+        }
 
         // regenerate the session token
         /* Security thing which recycles the session token */
