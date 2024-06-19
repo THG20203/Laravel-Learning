@@ -92,4 +92,6 @@ class JobController extends Controller
 }
 
 /* $model->is() theory:
-Determine if two models have the same ID and belong to the same table. */
+Determine if two models have the same ID and belong to the same table. 
+Is the user instance the same as the user who is currently signed in. 
+hence user->is(Auth::user()) */
