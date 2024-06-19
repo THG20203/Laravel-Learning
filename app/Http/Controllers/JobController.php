@@ -48,12 +48,6 @@ class JobController extends Controller
     }
     public function edit(Job $job)
     {
-        /* now can reference that logic to authorie user - providing the name 'edit-job' and then the $job (job variable) we 
-        are referring to. */
-        /* The authorize method will run the logic associated with the name I reference (i.e. 'edit-job'). If it fails/ returns
-        false, laravel automatically aborts with a 403. */
-        Gate::authorize('edit-job', $job);
-
         /* If the user who created this job is not the person who is currently signed in, then you don't 
         have authorisation. */
         return view('jobs.edit', ['job' => $job]);
