@@ -17,7 +17,8 @@
                 <!-- input and error section -->
                 <div class="mt-2">
                     <!-- On email overwriting the type to make it email -->
-                    <x-form-input name="email" id="email" type="email" required />
+                    <!-- old() laravel helper function for the value. Going to give me old attribute from the session. -->
+                    <x-form-input name="email" id="email" type="email" value="old('email')" required />
                     <x-form-error name="email" />
                 </div>
             </x-form-field>
