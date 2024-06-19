@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 // importing the job class
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 
@@ -46,6 +48,14 @@ class JobController extends Controller
     }
     public function edit(Job $job)
     {
+        // GATE AUTHORISED CONTENT
+        /* Use Gate facade - conditionally allow entry if you meet certain criteria, if you are
+        authorised that gate will open, but if you are unauthroised the gate is locked. */
+        /* First: Given Gate the name edit-job. */
+        /* Second: PAss a function that will accept the signed in user, as well as the job we are authorising. */
+        Gate::define('edit-job', function (User $user, Job $job) {
+        });
+
         // IF NOT SIGNED IN
         /* to edit job, should be signed in so going to check if you're a guest, if so redirect you 
         to the login page. */
