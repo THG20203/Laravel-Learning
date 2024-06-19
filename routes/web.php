@@ -18,7 +18,7 @@ controller. */
 // First argument is resource name. this will also be the url (in this case jobs)
 // Second argument is the controller that is responsible for it, in this case JobController
 // Third argument is except, rule out things we don't need routes for that would normallhy be in resource
-Route::resource('jobs', JobController::class, ['except' => ['edit']]);
+Route::resource('jobs', JobController::class);
 
 // Auth
 /* Registered User Controller first then action which I'm going to call create cause I'm creating a 
