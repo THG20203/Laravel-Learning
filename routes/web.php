@@ -12,7 +12,9 @@ Route::view('/', 'home');
 // Shorthand for displaying view for contact
 Route::view('/contact', 'contact');
 
-/* Adding all of the URL's back in, so can apply middleware on a per route basis. */
+/* Adding all of the URL's back in, so can apply middleware on a per route basis. Moved away from using
+route resources (resource registers all of the routes for a a typical restful or resourceful 
+controller.) */
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/create', [JobController::class, 'create']);
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
