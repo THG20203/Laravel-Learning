@@ -46,14 +46,23 @@ class JobController extends Controller
     }
     public function edit(Job $job)
     {
-        // SIGNED IN CHECK
+        // IF NOT SIGNED IN
         /* to edit job, should be signed in so going to check if you're a guest, if so redirect you 
         to the login page. */
         if (Auth::guest()) {
             return redirect('/login');
         }
 
-        // 
+        /* If the user who created this job is not the person who is currently signed in, then you don't 
+        have authorisation. */
+
+        // IF YOU ARE SIGNED IN
+        /* give me employer behind the job, then give me the user/ manager responsible for that employer, 
+        then new method 'is'. If is the currently Authentication user, then you're authorised. */
+        if ($job->employer->user->is(Auth::user())) {
+            //
+        }
+
 
         return view('jobs.edit', ['job' => $job]);
     }
