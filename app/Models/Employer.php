@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employer extends Model
 {
@@ -13,6 +14,13 @@ class Employer extends Model
     {
         /* employer can sign up and create many jobs, so hasMany(Job) */
         return $this->hasMany(Job::class);
+    }
+
+    /* Job belongs to an employer AND THEN here in employer, an employer belongs to a 
+    user */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
 
