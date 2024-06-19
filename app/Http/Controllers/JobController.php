@@ -60,7 +60,6 @@ class JobController extends Controller
         /* give me employer behind the job, then give me the user/ manager responsible for that employer, 
         then new method 'is'. If is the currently Authentication user, then you're authorised. */
         if ($job->employer->user->is(Auth::user())) {
-            //
         }
 
 
@@ -91,3 +90,6 @@ class JobController extends Controller
         return redirect('/jobs');
     }
 }
+
+/* $model->is() theory:
+Determine if two models have the same ID and belong to the same table. */
