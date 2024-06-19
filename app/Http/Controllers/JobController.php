@@ -58,7 +58,7 @@ class JobController extends Controller
             job. */
             /* return if the employer user IS the currently signed in user. Simpler to just to return this as the true value
             in the Gate boolean */
-            return $job->employer->user->is(Auth::user());
+            return $job->employer->user->is($user);
         });
 
         // IF NOT SIGNED IN
