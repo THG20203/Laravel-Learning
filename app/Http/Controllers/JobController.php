@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // importing the job class
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 
@@ -45,6 +46,11 @@ class JobController extends Controller
     }
     public function edit(Job $job)
     {
+        /* to edit job, should be signed in so going to check if you're a guest, if so redirect you 
+        to the login page. */
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         return view('jobs.edit', ['job' => $job]);
     }
     public function update(Job $job)

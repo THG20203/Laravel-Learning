@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,9 @@ class EmployerFactory extends Factory
     {
         return [
             "name" => fake()->company(),
+            /* Now employer contains a user_id as well as a name as it did originally - reference 
+            User::factory for that */
+            "user_id" => User::factory()
         ];
     }
 }
