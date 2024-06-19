@@ -61,7 +61,7 @@ class JobController extends Controller
         then new method 'is'. If is the currently Authentication user, then you're authorised. */
         if ($job->employer->user->isNot(Auth::user())) {
             // if you are signed in but are not the authorised user for that job, abort
-            abort();
+            abort(403); // 403 error meaning forbidden rather than 404 which means not found/ doesn't exist
         }
 
 
