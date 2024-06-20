@@ -37,7 +37,8 @@ class JobPosted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            /* updated view name to job-posted to correspond to blade file in mail folder in views */
+            view: 'mail.job-posted',
         );
     }
 
