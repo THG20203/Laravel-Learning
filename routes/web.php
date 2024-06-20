@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Route;
 
 // Creating a dummy route for mail get request.
 Route::get('test', function () {
-
+    // displaching a job -> dispatch ai helper function (called a queued closure)
+    dispatch(function () {
+        logger('Hello from the queue');
+    });
 
     // Provide some quick feedback to action with a return statement
     return 'Done';
