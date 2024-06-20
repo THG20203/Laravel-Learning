@@ -33,6 +33,10 @@ class JobPosted extends Mailable
     {
         return new Envelope(
             subject: 'Job Posted',
+            /* can overwrite who sent from with a from: key value pairing here */
+            from: 'admin@example.com',
+            /* can overwrite the 'reply to' here also */
+            replyTo: 'admin2@example.com'
         );
     }
 
