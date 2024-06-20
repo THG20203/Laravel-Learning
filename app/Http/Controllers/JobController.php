@@ -65,6 +65,8 @@ class JobController extends Controller
         return view('jobs.edit', ['job' => $job]);
     }
 
+    /* test of statistics image */
+
     public function update(Job $job)
     {
         // validate
