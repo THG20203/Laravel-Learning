@@ -49,7 +49,9 @@ class JobController extends Controller
         the job. that should go in the argument list */
         /* Created a $job variable above to store jobs created. Remember a job belongs to an employer, employer 
         belongs to a user (and an user has an email but laravel is clever enough to work that out). */
-        Mail::to($job->employer->user)->send(
+        /* Changed the send method to queue. So don't delete the email as part of the current request, instead
+        throw it onto a queue. */
+        Mail::to($job->employer->user)->queue(
             new JobPosted($job)
         );
 
