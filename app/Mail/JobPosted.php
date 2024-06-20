@@ -22,7 +22,12 @@ class JobPosted extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Get the message envelope. Here fill out:
+     * Subject of the email
+     * Who its to
+     * Who its from
+     * Reply to
+     * Tags associated with the email provider
      */
     public function envelope(): Envelope
     {
@@ -33,6 +38,7 @@ class JobPosted extends Mailable
 
     /**
      * Get the message content definition.
+     * Return a new instance of content class and pass the name of a view
      */
     public function content(): Content
     {

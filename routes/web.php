@@ -8,8 +8,12 @@ use Illuminate\Support\Facades\Route;
 
 // Creating a dummy route for mail get request.
 Route::get('test', function () {
-    // returning a new instance of my mailable class
-    return new \App\Mail\JobPosted();
+    // to() function - specify who the email is 'to'
+    \Illuminate\Support\Facades\Mail::to('tristanhgriffiths8@yahoo.com')->send(
+        new \App\Mail\JobPosted()
+    );
+
+    return 'Done';
 });
 
 /* Typically put all the views at the top */
