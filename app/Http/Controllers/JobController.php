@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // importing the job class
 use App\Models\Job;
 use App\Models\User;
+use App\Mail\JobPosted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -37,16 +38,19 @@ class JobController extends Controller
             "salary" => ["required"],
         ]);
 
-        Job::create([
+        $job = Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
             /* Whilst I haven't done authentication, will hard code an employer. */
             'employer_id' => 1,
         ]);
 
-        // after we publish new job, can deliver that email
-        Mail::to('tristanhgriffiths8@yahoo.com')->send(
-            new \App\Mail\JobPosted()
+        /* after we publish new job, can deliver that email. But should send the email to the person who created
+        the job. that should go in the argument list */
+        /* Created a $job variable above to store jobs created. Remember a job belongs to an employer, employer 
+        belongs to a user (and an user has an email but laravel is clever enough to work that out). */
+        Mail::to($job->employer->user)->send(
+            new JobPosted($job)
         );
 
         /* after finishing entering the form would be good to redirect to the jobs page */
