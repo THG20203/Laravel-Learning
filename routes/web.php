@@ -14,6 +14,7 @@ Route::get('test', function () {
         new \App\Mail\JobPosted()
     );
 
+    // Provide some quick feedback to action with a return statement
     return 'Done';
 });
 
