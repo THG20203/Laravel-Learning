@@ -109,6 +109,8 @@ return [
     */
 
     'from' => [
+        /* First argument MAIL_FROM_ADDRESS is an environment variable - set in .env file.
+        - If this has not been set, then turns to utilising hello@example.com */
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
