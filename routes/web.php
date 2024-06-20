@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 // Creating a dummy route for mail get request.
 Route::get('test', function () {
-    // To send an email use Mail facade
-    // to() function - specify who the email is 'to'
-    \Illuminate\Support\Facades\Mail::to('tristanhgriffiths8@yahoo.com')->send(
-        new \App\Mail\JobPosted()
-    );
+
 
     // Provide some quick feedback to action with a return statement
     return 'Done';

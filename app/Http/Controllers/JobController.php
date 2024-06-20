@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 
@@ -42,6 +43,11 @@ class JobController extends Controller
             /* Whilst I haven't done authentication, will hard code an employer. */
             'employer_id' => 1,
         ]);
+
+        // after we publish new job, can deliver that email
+        Mail::to('tristanhgriffiths8@yahoo.com')->send(
+            new \App\Mail\JobPosted()
+        );
 
         /* after finishing entering the form would be good to redirect to the jobs page */
         return redirect("/jobs");
