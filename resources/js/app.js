@@ -1,3 +1,4 @@
 import "./bootstrap";
+import "../css/app.css";
 
-alert("Hello from the js");
+// alert("Hello from the js");
