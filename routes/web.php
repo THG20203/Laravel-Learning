@@ -1,17 +1,20 @@
 <?php
 
 // Simplifying below - importing controllers into web - short cut for code below
-use App\Http\Controllers\JobController;
-use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\SessionController;
+use App\Models\Job;
+use App\Jobs\TranslateJob;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\RegisteredUserController;
 
 // Creating a dummy route for mail get request.
 Route::get('test', function () {
-    // displaching a job -> dispatch ai helper function (called a queued closure)
-    dispatch(function () {
-        logger('Hello from the queue');
-    })->delay(5);
+    // Track down a job listing from database to pass into the dispatch function
+    $job = Job::first();
+
+    // This time, not going to win a queued closure, I will DISPATCH a dedicated job
+    TranslateJob::dispatch($job);
 
     // Provide some quick feedback to action with a return statement
     return 'Done';
